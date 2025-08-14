@@ -58,9 +58,34 @@ func main3() {
 }
 
 // 给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一
-func main() {
+func main4() {
 	var array1 []int = []int{1, 5, 6, 3}
 	var array2 []int = []int{9, 9, 9}
 	fmt.Println("array1加一结果是", task1.PlusOne(array1))
 	fmt.Println("array2加一结果是", task1.PlusOne(array2))
+}
+
+// 给你一个有序数组 nums ，请你原地删除重复出现的元素，使每个元素只出现一次
+func main5() {
+	var array []int = []int{1, 1, 2, 3, 4, 4, 4, 5, 5, 6, 6, 7}
+	fmt.Println("新数组长度是:", task1.RemoveNumber(array))
+}
+
+// 合并区间
+func main6() {
+	var array [][]int = [][]int{
+		{1, 3},
+		{4, 6},
+		{5, 8},
+		{7, 10},
+		{20, 30},
+	}
+	fmt.Println("合并后的数组：", task1.MergeArray(array))
+}
+
+// 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那两个整数
+func main() {
+	var array []int = []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	var target int = 9
+	fmt.Println("找到的结果是", task1.FindSumNumber(array, target))
 }
