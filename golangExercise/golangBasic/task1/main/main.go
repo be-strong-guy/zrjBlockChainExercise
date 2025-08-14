@@ -17,7 +17,7 @@ func main1() {
 	fmt.Println("只出现一次的数字是：", number)
 }
 
-func main() {
+func main2() {
 	// 验证字符串是否是有效字符串
 	s1 := "([{}])"
 	s2 := "{[}]"
@@ -36,5 +36,22 @@ func main() {
 		fmt.Println("字符串s3是有效字符串！")
 	} else {
 		fmt.Println("字符串s3不是有效字符串！")
+	}
+}
+
+func main() {
+	strs1 := []string{"flower", "flow", "flight"}
+	strs2 := []string{"aa", "bb", "cc"}
+	s := task1.LongestCommonPrefix(strs1)
+	if s != "" {
+		fmt.Println("字符串数组strs1最长公共前缀是:", s)
+	} else {
+		fmt.Println("字符串数组strs1不存在公共前缀")
+	}
+	s = task1.LongestCommonPrefix(strs2)
+	if s != "" {
+		fmt.Println("字符串数组strs2最长公共前缀是:", s)
+	} else {
+		fmt.Println("字符串数组strs2不存在公共前缀")
 	}
 }
