@@ -36,7 +36,9 @@ func main3() {
 	fmt.Println("打印完成")
 }
 
-func main() {
+// 设计一个任务调度器，接收一组任务（可以用函数表示），
+// 并使用协程并发执行这些任务，同时统计每个任务的执行时间。
+func main4() {
 	var tasks []task2.Task = []task2.Task{
 		func() {
 			fmt.Println("我是任务1")
@@ -52,4 +54,27 @@ func main() {
 		},
 	}
 	task2.TaskDispatch(tasks)
+}
+
+// 定义一个 Shape 接口，包含 Area() 和 Perimeter() 两个方法。
+func main5() {
+	var rec task2.Rectangle = task2.Rectangle{}
+	rec.Area()
+	rec.Perimeter()
+	var cir task2.Circle = task2.Circle{}
+	cir.Perimeter()
+	cir.Area()
+}
+
+// 使用组合的方式创建一个 Person 结构体
+func main() {
+	var person task2.Person = task2.Person{
+		"张三丰",
+		18,
+	}
+	var employee task2.Employee = task2.Employee{
+		person,
+		138138,
+	}
+	employee.PrintInfo()
 }
