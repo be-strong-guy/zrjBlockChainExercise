@@ -67,7 +67,7 @@ func main5() {
 }
 
 // 使用组合的方式创建一个 Person 结构体
-func main() {
+func main6() {
 	var person task2.Person = task2.Person{
 		"张三丰",
 		18,
@@ -77,4 +77,28 @@ func main() {
 		138138,
 	}
 	employee.PrintInfo()
+}
+
+// 编写一个程序，使用通道实现两个协程之间的通信。
+// 一个协程生成从1到10的整数，并将这些整数发送到通道中，另一个协程从通道中接收这些整数并打印出来。
+func main7() {
+	task2.Channel()
+}
+
+// 实现一个带有缓冲的通道，生产者协程向通道中发送100个整数，
+// 消费者协程从通道中接收这些整数并打印。
+func main8() {
+	task2.ChannelBuffer()
+}
+
+// 编写一个程序，使用 sync.Mutex 来保护一个共享的计数器。
+// 启动10个协程，每个协程对计数器进行1000次递增操作，最后输出计数器的值
+func main9() {
+	task2.SyncMutexTest()
+}
+
+// 使用原子操作（ sync/atomic 包）实现一个无锁的计数器。
+// 启动10个协程，每个协程对计数器进行1000次递增操作，最后输出计数器的值。
+func main() {
+	task2.SyncAtomic()
 }
