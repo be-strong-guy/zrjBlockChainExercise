@@ -39,7 +39,8 @@ func main2() {
 	}
 }
 
-func main() {
+// 测试查找最长公共字符串前缀
+func main3() {
 	strs1 := []string{"flower", "flow", "flight"}
 	strs2 := []string{"aa", "bb", "cc"}
 	s := task1.LongestCommonPrefix(strs1)
@@ -54,4 +55,12 @@ func main() {
 	} else {
 		fmt.Println("字符串数组strs2不存在公共前缀")
 	}
+}
+
+// 给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一
+func main() {
+	var array1 []int = []int{1, 5, 6, 3}
+	var array2 []int = []int{9, 9, 9}
+	fmt.Println("array1加一结果是", task1.PlusOne(array1))
+	fmt.Println("array2加一结果是", task1.PlusOne(array2))
 }
