@@ -1,0 +1,36 @@
+1、为了省事，直接在一个文件中写了，正常web开发肯定要分文件结构的
+按照标准的微服务结构开发
+2、测试用例：直接用curl请求即可，当然也可以用postman之类的
+# 注册
+curl -X POST http://localhost:8080/v1/register \
+  -H 'Content-Type: application/json' \
+  -d '{"username":"alice","password":"secret123","email":"a@x.com"}'
+
+# 登录（拿到 token）
+TOKEN=$(curl -s -X POST http://localhost:8080/v1/login \
+  -H 'Content-Type: application/json' \
+  -d '{"username":"alice","password":"secret123"}' | jq -r .token)
+
+# 创建文章
+curl -X POST http://localhost:8080/v1/posts \
+  -H "Authorization: Bearer $TOKEN" -H 'Content-Type: application/json' \
+  -d '{"title":"Hello","content":"World"}'
+
+# 列表/详情
+curl -H "Authorization: Bearer $TOKEN" http://localhost:8080/v1/posts
+curl -H "Authorization: Bearer $TOKEN" http://localhost:8080/v1/posts/1
+
+# 更新
+curl -X PATCH http://localhost:8080/v1/posts/1 \
+  -H "Authorization: Bearer $TOKEN" -H 'Content-Type: application/json' \
+  -d '{"title":"Updated"}'
+
+# 评论
+curl -X POST http://localhost:8080/v1/posts/1/comments \
+  -H "Authorization: Bearer $TOKEN" -H 'Content-Type: application/json' \
+  -d '{"content":"Nice post!"}'
+
+curl -H "Authorization: Bearer $TOKEN" http://localhost:8080/v1/posts/1/comments
+
+# 删除
+curl -X DELETE -H "Authorization: Bearer $TOKEN" http://localhost:8080/v1/posts/1
